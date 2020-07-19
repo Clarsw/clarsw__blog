@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 1271716 */
+  src: url('//at.alicdn.com/t/font_1271716_0fh44c30476m.eot');
+  src: url('//at.alicdn.com/t/font_1271716_0fh44c30476m.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1271716_0fh44c30476m.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1271716_0fh44c30476m.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1271716_0fh44c30476m.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1271716_0fh44c30476m.svg#iconfont') format('svg');
+}
+
+.#{$css-prefix}icon{
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+$iconClass:
+(arrow-left '\e6a7')
+(kefu '\e628')
+(hot '\e6b1')
+(recommend2 '\e6b8')
+(quotation '\e626')
+(vip '\e6b5')
+(pay '\e6b3')
+(check '\e643')
+(more '\e6a8')
+(kefu '\e628')
+(close '\e608')
+(pay-a '\e605')
+(pay-w '\e650')
+(pay-v '\e6b7')
+(notice '\e625')
+(power1 '\e6ac')
+(power2 '\e64c')
+(power3 '\e6af')
+(power4 '\e6b2')
+(power5 '\e64b')
+(power6 '\e6ab')
+(power7 '\e6aa')
+(power8 '\e6a6')
+(power9 '\e6b6')
+(power10 '\e6ae')
+(power11 '\e6b6')
+(power12 '\e6b4');
+
+@each $icon in $iconClass{
+  $class: nth($icon, 1);
+  $fontValue: nth($icon, 2);
+  .#{$css-prefix}icon__#{$class}::before {
+    content: $fontValue;
+  }
+}
