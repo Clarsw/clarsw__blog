@@ -1,0 +1,88 @@
+@charset "UTF-8";
+//-----------------------------------------------------
+//animate
+//n组动画
+//-----------------------------------------------------
+
+%animation-basic{
+  animation-duration: .5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  // animation-iteration-count: n|infinite;
+}
+
+// shrink in
+//------------------------------------------------------
+@mixin  animation-shrink-in($name,$from) {
+  .#{$name}{
+  animation-name: $name;
+  @extend %animation-basic;
+}
+  @keyframes #{$name} {
+    0%{
+      opacity: 0;
+      transform:scale($from);
+    }
+    100%{
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+  } 
+ 
+}
+//------------------------------------------------------
+
+
+// move in
+//------------------------------------------------------
+@mixin animation-move-in($name,$x,$y){
+  .#{$name}{
+  animation-name: $name;
+  @extend %animation-basic;
+}
+  @keyframes #{$name} {
+    0%{
+      opacity: 0;
+      transform: translate($x,$y);
+    }
+    100%{
+      opacity: 1;
+      transform: translate(0,0);
+    }
+    
+  }
+
+}
+//------------------------------------------------------
+
+
+// audio rotate
+//------------------------------------------------------
+@mixin animation-audio ($name){
+  .#{$name}{
+   animation:in 1s ease,rotate 1s linear 1s infinite;
+   animation-fill-mode: forwards;
+  }
+  @keyframes in {
+    0%{
+      transform: translate(-52px,0);
+      opacity: 0;
+    }
+    100%{
+      transform: translate(0,0);
+      opacity: 1;
+    }
+    
+  }
+  @keyframes rotate {
+    0%{
+      transform: rotate(0);
+    }
+    100%{
+      transform: rotate(360deg);
+    }
+    
+  }
+}
+//------------------------------------------------------
